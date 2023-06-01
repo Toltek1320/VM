@@ -1,10 +1,11 @@
 package org.example.hw1;
 // Класс Person (Человек).
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Person {
+public class Person implements Serializable {
     private final String name;
     private final int birthYear;
     private final Gender gender;
@@ -27,8 +28,7 @@ public class Person {
         this.children.add(child);
         if (this.gender == Gender.Male) {
             child.setFather(this);
-        }
-        else {
+        } else {
             child.setMother(this);
         }
     }
@@ -41,5 +41,4 @@ public class Person {
         return this.children.toArray(new Person[0]);
     }
 }
-
 

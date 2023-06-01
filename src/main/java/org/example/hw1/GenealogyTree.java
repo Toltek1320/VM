@@ -1,10 +1,11 @@
 package org.example.hw1;
 // Класс GenealogyTree (генеалогическое дерево).
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GenealogyTree {
+public class GenealogyTree implements Serializable {
     private Person root;
 
     public void setRoot(Person person) {
@@ -60,6 +61,10 @@ public class GenealogyTree {
         for (Person child : current.getChildren()) {
             searchPersonInTree(child, name, result);
         }
+    }
+    public interface DataIO {
+        public void writeData(Person person, String fileName);
+        public Person readData(String fileName);
     }
 }
 
