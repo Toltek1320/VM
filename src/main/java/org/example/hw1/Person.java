@@ -34,10 +34,12 @@ public class Person implements Serializable {
     }
 
     public String getName() {
+
         return this.name;
     }
 
     public Person[] getChildren() {
+
         return this.children.toArray(new Person[0]);
     }
 }
