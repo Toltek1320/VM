@@ -1,9 +1,8 @@
 package org.example.hw1;
 
-import java.util.List;
-
 public class Main {
     public static void main(String[] args) {
+
         Person mother = new Person("Ольга", 1972, Gender.Female, Education.Secondary);
         Person father = new Person("Иван", 1969, Gender.Male, Education.Higher);
         Person child1 = new Person("Катя", 1996, Gender.Female, Education.None);
@@ -17,10 +16,39 @@ public class Main {
         tree.addPerson(child2, "Ольга", "Иван");
         tree.addPerson(child3, "Ольга", "Иван");
 
-        List<Person> searchResult = tree.searchPerson("Катя");
-        System.out.println("Search results for person with name 'Катя':");
-        for (Person person : searchResult) {
-            System.out.println(person.getName());
+        PersonFamily list = new PersonFamily();
+        list.addPerson(mother);
+        list.addPerson(father);
+        list.addPerson(child1);
+        list.addPerson(child2);
+        list.addPerson(child3);
+
+        for (Person person : list) {
+            System.out.println(person.toString());
+        }
+
+        System.out.println("_________ Сортировка по имени ___________");
+
+        list.sortByName();
+
+        for (Person person : list) {
+            System.out.println(person.toString());
+        }
+
+        System.out.println("_________ Сортировка по году рождения ___________");
+
+        list.sortByBirthYear();
+
+        for (Person person : list) {
+                System.out.println(person.toString());
         }
     }
 }
+
+
+
+
+
+
+
+
